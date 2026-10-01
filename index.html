@@ -45,6 +45,7 @@
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
+  <!-- Top bar -->
   <div class="top-bar">
     <div class="container top-bar__inner">
       <div class="top-bar__group">
@@ -60,6 +61,7 @@
     </div>
   </div>
 
+  <!-- Header -->
   <header class="site-header" id="site-header">
     <div class="container site-header__inner">
       <a href="index.html" class="brand" aria-label="Fresh Mart home">
@@ -114,6 +116,7 @@
   </header>
 
   <main id="main">
+    <!-- Hero -->
     <section class="hero" aria-labelledby="hero-heading">
       <div class="container hero__inner">
         <div class="hero__content">
@@ -133,6 +136,7 @@
       </div>
     </section>
 
+    <!-- Categories -->
     <section class="section categories" id="categories" aria-labelledby="categories-heading">
       <div class="container">
         <div class="section__head">
@@ -152,6 +156,7 @@
       </div>
     </section>
 
+    <!-- Promos -->
     <section class="section promos" aria-label="Promotions">
       <div class="container promos__grid">
         <article class="promo promo--fruit">
@@ -173,6 +178,7 @@
       </div>
     </section>
 
+    <!-- Featured products -->
     <section class="section featured" id="featured-products" aria-labelledby="featured-heading">
       <div class="container">
         <div class="section__head">
@@ -182,6 +188,88 @@
 
         <p class="visually-hidden" id="featured-status" role="status" aria-live="polite"></p>
 
+        <!-- Toolbar -->
+        <div class="products-toolbar">
+          <p class="products-count" id="products-count" aria-live="polite">Loading…</p>
+
+          <div class="products-toolbar__actions">
+            <button type="button" class="filter-toggle" id="filter-toggle" aria-expanded="false" aria-controls="filter-panel">
+              <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+              <span>Filters</span>
+              <span class="filter-toggle__badge" id="filter-badge" hidden>0</span>
+            </button>
+
+            <div class="sort-control">
+              <label for="sort-select" class="visually-hidden">Sort products by</label>
+              <i class="fa-solid fa-arrow-down-wide-short" aria-hidden="true"></i>
+              <select id="sort-select">
+                <option value="featured">Featured</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="rating">Top Rated</option>
+                <option value="name-asc">Name: A → Z</option>
+                <option value="name-desc">Name: Z → A</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter panel -->
+        <aside class="filter-panel" id="filter-panel" aria-label="Product filters" hidden>
+          <div class="filter-panel__head">
+            <h3>Filters</h3>
+            <button type="button" class="filter-close" id="filter-close" aria-label="Close filters">
+              <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <div class="filter-panel__body">
+            <fieldset class="filter-group">
+              <legend>Category</legend>
+              <div class="filter-chips" id="category-chips">
+                <button type="button" class="chip is-active" data-cat="all">All</button>
+              </div>
+            </fieldset>
+
+            <fieldset class="filter-group">
+              <legend>Price (EGP)</legend>
+              <div class="filter-price">
+                <label for="price-min" class="visually-hidden">Minimum price</label>
+                <input id="price-min" type="number" inputmode="numeric" min="0" placeholder="Min" />
+                <span aria-hidden="true">—</span>
+                <label for="price-max" class="visually-hidden">Maximum price</label>
+                <input id="price-max" type="number" inputmode="numeric" min="0" placeholder="Max" />
+              </div>
+            </fieldset>
+
+            <fieldset class="filter-group">
+              <legend>Minimum rating</legend>
+              <div class="filter-chips" id="rating-chips">
+                <button type="button" class="chip is-active" data-rating="0">Any</button>
+                <button type="button" class="chip" data-rating="3">3★ &amp; up</button>
+                <button type="button" class="chip" data-rating="4">4★ &amp; up</button>
+                <button type="button" class="chip" data-rating="4.5">4.5★ &amp; up</button>
+              </div>
+            </fieldset>
+
+            <fieldset class="filter-group">
+              <legend>Availability</legend>
+              <label class="filter-check">
+                <input type="checkbox" id="in-stock-only" />
+                <span>In stock only</span>
+              </label>
+            </fieldset>
+          </div>
+
+          <div class="filter-panel__foot">
+            <button type="button" class="btn btn--ghost" id="clear-filters">Clear all</button>
+            <button type="button" class="btn btn--primary" id="apply-filters">Show results</button>
+          </div>
+        </aside>
+
+        <div class="filter-overlay" id="filter-overlay" hidden></div>
+
+        <!-- Grid -->
         <div class="product-grid" id="product-grid" aria-busy="true" aria-describedby="featured-status">
           <div class="skeleton-card" aria-hidden="true"></div>
           <div class="skeleton-card" aria-hidden="true"></div>
@@ -191,6 +279,7 @@
       </div>
     </section>
 
+    <!-- Newsletter + App -->
     <section class="section cta" aria-labelledby="cta-heading">
       <div class="container cta__grid">
         <div class="newsletter">
@@ -222,6 +311,7 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container site-footer__grid">
       <div class="footer-col">

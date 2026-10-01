@@ -1,9 +1,4 @@
-/* ============================================================
-   Fresh Mart — product detail page
-   Depends on css/style.css (shared tokens, header, footer, grid)
-   ============================================================ */
 
-/* ---------- Breadcrumb ---------- */
 .breadcrumb {
   padding-block: 0.75rem 0;
   font-size: 0.85rem;

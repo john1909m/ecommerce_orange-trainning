@@ -673,3 +673,276 @@ h3 { font-size: 1.1rem; font-weight: 700; }
     scroll-behavior: auto !important;
   }
 }
+
+/* ============================================================
+   Products toolbar + filters
+   ============================================================ */
+
+.products-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.products-count {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 600;
+}
+.products-toolbar__actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-left: auto;
+}
+
+/* Filter toggle */
+.filter-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  border-radius: 999px;
+  font-weight: 700;
+  color: #1f2937;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.filter-toggle:hover { border-color: #2f9e44; background: #f0fdf4; }
+.filter-toggle[aria-expanded="true"] {
+  background: #2f9e44;
+  color: #fff;
+  border-color: #2f9e44;
+}
+.filter-toggle__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  background: #f97316;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  border-radius: 999px;
+}
+
+/* Sort */
+.sort-control {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  padding-inline: 0.75rem;
+  min-height: 44px;
+}
+.sort-control i {
+  color: #6b7280;
+  margin-right: 0.4rem;
+  font-size: 0.85rem;
+}
+.sort-control select {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-weight: 600;
+  padding: 0.5rem 1.5rem 0.5rem 0;
+  cursor: pointer;
+  color: #1f2937;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236b7280' d='M6 8 0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+.sort-control select:focus-visible {
+  outline: 2px solid #2f9e44;
+  outline-offset: 4px;
+}
+
+/* Filter panel */
+.filter-panel {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.filter-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.filter-panel__head h3 { margin: 0; font-size: 1.05rem; }
+.filter-close {
+  width: 36px; height: 36px;
+  border: 0;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #6b7280;
+}
+.filter-close:hover { background: #f3f4f6; color: #1f2937; }
+
+.filter-panel__body { display: grid; gap: 1rem; }
+.filter-group {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.filter-group legend {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+}
+
+.filter-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.chip {
+  min-height: 36px;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #1f2937;
+  transition: all 0.15s ease;
+}
+.chip:hover { border-color: #2f9e44; color: #1f7a32; }
+.chip.is-active { background: #2f9e44; border-color: #2f9e44; color: #fff; }
+
+.filter-price { display: flex; align-items: center; gap: 0.5rem; }
+.filter-price input {
+  width: 100%;
+  min-height: 40px;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font: inherit;
+}
+.filter-price input:focus-visible {
+  outline: 2px solid #2f9e44;
+  outline-offset: 2px;
+}
+.filter-price span { color: #9ca3af; }
+
+.filter-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.filter-check input { width: 18px; height: 18px; accent-color: #2f9e44; }
+
+.filter-panel__foot {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  border-top: 1px solid #f3f4f6;
+  padding-top: 0.75rem;
+  margin-top: 0.25rem;
+}
+.btn--ghost {
+  background: transparent;
+  color: #6b7280;
+  border-color: #d1d5db;
+}
+.btn--ghost:hover { background: #f3f4f6; color: #1f2937; }
+
+.filter-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  z-index: 40;
+  animation: filter-fade 0.2s ease;
+}
+@keyframes filter-fade { from { opacity: 0; } to { opacity: 1; } }
+
+/* Mobile: drawer */
+@media (max-width: 767px) {
+  .filter-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(88%, 360px);
+    border-radius: 0 16px 16px 0;
+    border: 0;
+    z-index: 50;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    margin: 0;
+    padding: 1.25rem;
+    display: flex;
+  }
+  .filter-panel.is-open { transform: translateX(0); }
+  .filter-panel__body { gap: 1.25rem; }
+  .filter-panel__foot {
+    position: sticky;
+    bottom: 0;
+    background: #fff;
+    padding-bottom: 0.5rem;
+  }
+}
+
+/* Desktop: sidebar */
+@media (min-width: 768px) {
+  .filter-panel { position: sticky; top: 88px; align-self: start; }
+  .filter-close,
+  .filter-panel__foot .btn--primary,
+  #filter-overlay { display: none !important; }
+}
+
+/* Desktop grid layout */
+@media (min-width: 1024px) {
+  .featured .container {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    grid-template-areas:
+      "head  head"
+      "tool  tool"
+      "panel grid";
+    column-gap: 1.5rem;
+  }
+  .section__head    { grid-area: head; }
+  .products-toolbar { grid-area: tool; }
+  .filter-panel     { grid-area: panel; }
+  #product-grid     { grid-area: grid; }
+  .filter-panel { position: sticky; top: 88px; height: fit-content; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filter-panel,
+  .filter-overlay { transition: none; animation: none; }
+}
+
+@media (forced-colors: active) {
+  .chip.is-active,
+  .filter-toggle[aria-expanded="true"] { border: 2px solid Highlight; }
+}
+
+/* ============================================================
+   End of filters block
+   ============================================================ */
